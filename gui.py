@@ -128,7 +128,26 @@ def deposit():
     #Button
     Button(deposit_screen, text="Finish", font=('Calibri', 12), command=finish_deposit).grid(row=3,sticky=W, pady=5)
 
+def finish_deposit():
+    if amount.get() == "":
+        deposit_notif.config(text='Amount is required!', fg="red")
+    if float(amount.get())<=0:
+        deposit_notif.config(text='Negative currency is not accepted', fg='red')
+        return
+    file = open(login_name, 'r+')
+    file_data = file.read()
+    details = file_data.split('\n')
+    current_balance = details[4]
+    updated_balance = current_balance
+    updated_balance = float(updated_balance) + float(amount.get())
+    file_data = file_data.replace(current_balance, str(updated_balance))
+    file.seek(0)
+    file.truncate(0)
+    file.write(file_data)
+    file.close()
 
+    current_balance_label.config(text="Current Balance : R"+str(updated_balance), fg="green")
+    deposit_notif.config(text="Balance Updated", fg='green')
 def withdraw():
     print("withdraw")
 
