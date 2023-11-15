@@ -63,6 +63,9 @@ def register():
 
     #Buttons
     Button(register_screen,text="Register", command=finish_reg, font=('Calibri', 12)).grid(row=5, sticky=N, pady=15)
+    
+    register_screen.configure(bg='sky blue')
+
 
 def login_session():
     global login_name
@@ -85,7 +88,7 @@ def login_session():
 
                 #Lables
                 Label(account_dashboard, text="Account Dashboard", font=('Calibri', 12)).grid(row=0, sticky=N, pady=10)
-                Label(account_dashboard, text="Welcome" + name, font=('Calibri', 12)).grid(row=1, sticky=N, pady=5)
+                Label(account_dashboard, text="Welcome " + name, font=('Calibri', 12)).grid(row=1, sticky=N, pady=5)
 
                 #Buttons
                 Button(account_dashboard, text="Personal Details", font=('Calibri', 12), width=30, command=personal_details).grid(row=2, sticky=N, pady=10)
