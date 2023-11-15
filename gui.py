@@ -100,7 +100,34 @@ def login_session():
     login_notif.config(fg="red", text="No account found!!")
 
 def deposit():
-    print("Deposit")
+    #Variables
+    global amount
+    global deposit_notif
+    global current_balance_label
+    amount = StringVar()
+    file = open(login_name, "r")
+    file_data = file.read()
+    user_details = file_data.split('\n')
+    details_balance = user_details[4]
+
+    #deposit Screen 
+    deposit_screen = Toplevel(master)
+    deposit_screen.title('Deposit')
+
+    #Labels
+    Label(deposit_screen, text= "Deposit", font=('Calibri', 12)).grid(row=0,sticky=N,pady=10)
+    current_balance_label = Label(deposit_screen, text="Current Balance : R" +details_balance, font=('Calibri',12))
+    current_balance_label.grid(row=1, sticky=W)
+    Label(deposit_screen, text="Amount : ", font=('Calibri', 12)).grid(row=2,sticky=W)
+    deposit_notif = Label(deposit_screen, font=('Calibri', 12))
+    deposit_notif.grid(row=4, sticky=N, pady=5)
+
+    #Entry
+    Entry(deposit_screen, textvariable=amount).grid(row=2, column=1)
+    
+    #Button
+    Button(deposit_screen, text="Finish", font=('Calibri', 12), command=finish_deposit).grid(row=3,sticky=W, pady=5)
+
 
 def withdraw():
     print("withdraw")
@@ -121,10 +148,10 @@ def personal_details():
 
     #Labels
     Label(personal_details_screen, text="Personal Details", font=('Calibri', 12)).grid(row=0, sticky=N, pady=10)
-    Label(personal_details_screen, text="Name : " + details_name, font=('Calibri', 12)).grid(row=0, sticky=W)
-    Label(personal_details_screen, text="Age : " + details_age, font=('Calibri', 12)).grid(row=0, sticky=W)
-    Label(personal_details_screen, text="Gender : " + details_gender, font=('Calibri', 12)).grid(row=0, sticky=W)
-    Label(personal_details_screen, text="Balance : R" + details_balance, font=('Calibri', 12)).grid(row=0, sticky=W)
+    Label(personal_details_screen, text="Name : " + details_name, font=('Calibri', 12)).grid(row=1, sticky=W)
+    Label(personal_details_screen, text="Age : " + details_age, font=('Calibri', 12)).grid(row=2, sticky=W)
+    Label(personal_details_screen, text="Gender : " + details_gender, font=('Calibri', 12)).grid(row=3, sticky=W)
+    Label(personal_details_screen, text="Balance : R" + details_balance, font=('Calibri', 12)).grid(row=4, sticky=W)
 
 
 
