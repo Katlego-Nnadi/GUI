@@ -160,6 +160,9 @@ def login():
 master = Tk()
 master.title('Banking App')
 
+# Set the background color to red
+master.configure(bg='red')
+
 #image import 
 img = Image.open('money.jpeg')
 img =img.resize((150, 150))
