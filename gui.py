@@ -253,10 +253,12 @@ def login():
     #Buttons
     Button(login_screen, text="Login", command=login_session, width=15, font=('Calibri', 12)).grid(row=3,sticky=W,pady=5, padx=5)
 
+    login_screen.configure(bg='sky blue')
 
 #main Screen 
 master = Tk()
 master.title('Banking App')
+
 
 # Set the background color to red
 master.configure(bg='red')
