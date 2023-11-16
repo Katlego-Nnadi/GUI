@@ -48,10 +48,10 @@ def register():
 
     #Labels
     Label(register_screen, text="Please enter your details below to register", font=('Calibri', 12)).grid(row=0, sticky=N, pady=10)
-    Label(register_screen, text="Name:", font=('Calibri', 12)).grid(row=1, sticky=W)
-    Label(register_screen, text="Age:", font=('Calibri', 12)).grid(row=2, sticky=W)
-    Label(register_screen, text="Gender:", font=('Calibri', 12)).grid(row=3, sticky=W)
-    Label(register_screen, text="Password:", font=('Calibri', 12)).grid(row=4, sticky=W)
+    Label(register_screen, text="Name:", font=('Calibri', 12)).grid(row=1, sticky=W,pady=10)
+    Label(register_screen, text="Age:", font=('Calibri', 12)).grid(row=2, sticky=W, pady=10)
+    Label(register_screen, text="Gender:", font=('Calibri', 12)).grid(row=3, sticky=W, pady=10)
+    Label(register_screen, text="Password:", font=('Calibri', 12)).grid(row=4, sticky=W, pady=10)
     notif = Label(register_screen, font=('Calibri', 12))
     notif.grid(row=6, sticky=N, pady=10)
 
@@ -244,7 +244,7 @@ def login():
     
     #Labels
     Label(login_screen, text='Login to your account', font=('Calibri',12)).grid(row=0, sticky=N, pady=10)
-    Label(login_screen, text='Username', font=('Calibri',12)).grid(row=1, sticky=W)
+    Label(login_screen, text='Username', font=('Calibri',12)).grid(row=1, sticky=W, pady=10)
     Label(login_screen, text='Password', font=('Calibri',12)).grid(row=2, sticky=W)
     login_notif = Label(login_screen, font=('Calibri',12))
     login_notif.grid(row=4, sticky=N)
